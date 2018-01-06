@@ -11,6 +11,7 @@ const NewOpinionComponent = ({ onClick }) => {
         return
       }
       onClick(input.value)
+      input.value = ''
     }}>
       <input ref={node => input = node} />
       <button type='submit'>追加</button>

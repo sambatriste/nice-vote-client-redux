@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Opinion from './Opinion'
 import { vote } from '../actions'
 import NewOpinion from './NewOpinion'
+import TotalCount from './TotalCount'
 
 const ThemeComponent = ({ theme, onVoteClick }) => {
   return (
@@ -17,7 +18,8 @@ const ThemeComponent = ({ theme, onVoteClick }) => {
             />)
         })}
       </ul>
-      <NewOpinion themeId={theme.themeId}/>
+      <TotalCount opinions={theme.opinions} />
+      <NewOpinion themeId={theme.themeId} />
     </div>
   )
 }
