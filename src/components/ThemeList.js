@@ -5,12 +5,9 @@ import Theme from './Theme'
 const ThemeListComponent = ({ themes }) => {
   return (
     <div>
-      <ul>
-        {themes.map(theme => {
-          return <Theme key={theme.themeId} theme={theme} />
-        })}
-      </ul>
-
+      {themes.map(theme => {
+        return <Theme key={theme.themeId} theme={theme} />
+      })}
     </div>
   )
 }

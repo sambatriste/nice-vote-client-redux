@@ -10,10 +10,22 @@ const voteReducer = (themes = initialState, action) => {
       return agree(themes, action)
     case "ADD_OPINION":
       return addOpinion(themes, action)
+    case "ADD_THEME":
+      return addTheme(themes, action)
     default:
       return themes
   }
 }
+
+const addTheme = (themes, action) => {
+  const newTheme = {
+    themeId: action.themeId,
+    description: action.themeDescription,
+    opinions: []
+  }
+  return [...themes, newTheme]
+}
+
 const addOpinion = (themes, { themeId, opinionId, opinionDescription }) => {
   return themes.map(theme => {
     if (theme.themeId !== themeId) {
@@ -33,9 +45,7 @@ const addOpinion = (themes, { themeId, opinionId, opinionDescription }) => {
   })
 }
 
-
 const agree = (themes, { themeId, opinionId }) => {
-
   return themes.map(theme => {
     if (theme.themeId !== themeId) {
       return theme
