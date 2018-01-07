@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTheme } from '../actions'
 
-const NewThemeComponent = ({ addTheme }) => {
+const NewThemeComponent = ({ addTheme, history }) => {
   let input
   return (
     <div>
@@ -14,6 +14,7 @@ const NewThemeComponent = ({ addTheme }) => {
         }
         addTheme(input.value)
         input.value = ''
+        history.push('/themes');
       }}>
         <input ref={node => input = node} />
         <button>追加</button>
