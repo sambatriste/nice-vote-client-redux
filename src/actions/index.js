@@ -1,27 +1,30 @@
+export const vote = (themeId, opinionId) => ({
+  type: 'VOTE',
+  themeId,
+  opinionId,
+});
 
-export const vote = (themeId, opinionId) => {
-  return {
-    type: 'VOTE',
-    themeId,
-    opinionId
-  }
-}
+let nextOpinionId = 1000;
+const generateNextOpinionId = () => {
+  nextOpinionId += 1;
+  return nextOpinionId;
+};
 
-let nextOpinionId = 1000
-export const addOpinion = (themeId, opinionDescription) => {
-  return {
-    type: 'ADD_OPINION',
-    themeId,
-    opinionId: nextOpinionId++,
-    opinionDescription
-  }
-}
+export const addOpinion = (themeId, opinionDescription) => ({
+  type: 'ADD_OPINION',
+  themeId,
+  opinionId: generateNextOpinionId(),
+  opinionDescription,
+});
 
-let nextThemeId = 100
-export const addTheme = (themeDescription) => {
-  return {
-    type: 'ADD_THEME',
-    themeId: nextThemeId++,
-    themeDescription
-  }
-}
+let nextThemeId = 100;
+const generateNextThemeId = () => {
+  nextThemeId += 1;
+  return nextThemeId;
+};
+
+export const addTheme = themeDescription => ({
+  type: 'ADD_THEME',
+  themeId: generateNextThemeId(),
+  themeDescription,
+});
