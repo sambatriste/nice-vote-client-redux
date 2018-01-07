@@ -1,7 +1,7 @@
 export const vote = (themeId, opinionId) => ({
   type: 'VOTE',
   themeId,
-  opinionId,
+  opinionId
 });
 
 let nextOpinionId = 1000;
@@ -14,7 +14,7 @@ export const addOpinion = (themeId, opinionDescription) => ({
   type: 'ADD_OPINION',
   themeId,
   opinionId: generateNextOpinionId(),
-  opinionDescription,
+  opinionDescription
 });
 
 let nextThemeId = 100;
@@ -26,5 +26,5 @@ const generateNextThemeId = () => {
 export const addTheme = themeDescription => ({
   type: 'ADD_THEME',
   themeId: generateNextThemeId(),
-  themeDescription,
+  themeDescription
 });

@@ -17,7 +17,7 @@ const ThemeListComponent = ({ themes }) => (
 );
 
 const mapStateToProps = state => ({
-  themes: state.themes,
+  themes: state.themes
 });
 
 const ThemeList = connect(mapStateToProps, null)(ThemeListComponent);

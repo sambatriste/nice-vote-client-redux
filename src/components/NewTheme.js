@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
   doAddTheme: (themeDescription) => {
     const action = addTheme(themeDescription);
     dispatch(action);
-  },
+  }
 });
 
 const NewTheme = connect(null, mapDispatchToProps)(NewThemeComponent);

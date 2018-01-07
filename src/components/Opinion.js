@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
   doVote: (themeId, opinionId) => {
     const action = vote(themeId, opinionId);
     dispatch(action);
-  },
+  }
 });
 const Opinion = connect(null, mapDispatchToProps)(OpinionComponent);
 export default Opinion;

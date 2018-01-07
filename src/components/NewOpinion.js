@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: (opinionDescription) => {
     const action = addOpinion(ownProps.themeId, opinionDescription);
     dispatch(action);
-  },
+  }
 });
 const NewOpinion = connect(null, mapDispatchToProps)(NewOpinionComponent);
 export default NewOpinion;

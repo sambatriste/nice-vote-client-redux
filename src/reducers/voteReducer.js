@@ -8,12 +8,12 @@ const agree = (themes, { themeId, opinionId }) => themes.map((theme) => {
     }
     return {
       ...opinion,
-      agreementCount: opinion.agreementCount + 1,
+      agreementCount: opinion.agreementCount + 1
     };
   });
   return {
     ...theme,
-    opinions,
+    opinions
   };
 });
 
@@ -28,9 +28,9 @@ const addOpinion = (themes, { themeId, opinionId, opinionDescription }) => theme
       {
         opinionId,
         description: opinionDescription,
-        agreementCount: 0,
-      },
-    ],
+        agreementCount: 0
+      }
+    ]
   };
 });
 
@@ -39,7 +39,7 @@ const addTheme = (themes, action) => {
   const newTheme = {
     themeId: action.themeId,
     description: action.themeDescription,
-    opinions: [],
+    opinions: []
   };
   return [...themes, newTheme];
 };
@@ -52,14 +52,14 @@ const initialState = [
       {
         opinionId: 1,
         description: 'すいか',
-        agreementCount: 0,
+        agreementCount: 0
       },
       {
         opinionId: 2,
         description: 'いちご',
-        agreementCount: 1,
-      },
-    ],
+        agreementCount: 1
+      }
+    ]
   },
   {
     themeId: 2,
@@ -68,15 +68,15 @@ const initialState = [
       {
         opinionId: 1,
         description: '織田信長',
-        agreementCount: 0,
+        agreementCount: 0
       },
       {
         opinionId: 2,
         description: '織田信成',
-        agreementCount: 1,
-      },
-    ],
-  },
+        agreementCount: 1
+      }
+    ]
+  }
 ];
 
 /**

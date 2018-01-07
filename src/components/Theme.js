@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
   const themeId = parseInt(ownProps.match.params.themeId, 10);
   const theme = state.themes.find(e => (e.themeId === themeId));
   return {
-    theme,
+    theme
   };
 };
 const Theme = connect(mapStateToProps, null)(ThemeComponent);

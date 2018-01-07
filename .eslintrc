@@ -12,6 +12,7 @@
       "components": [ "Link", "NavLink" ],
       "specialLink": [ "to" ]
     }],
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "comma-dangle": ["error", "never"]
   }
 }
