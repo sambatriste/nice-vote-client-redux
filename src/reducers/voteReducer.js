@@ -87,15 +87,14 @@ const initialState = [
 const voteReducer = (themes = initialState, action) => {
   switch (action.type) {
     case 'VOTE':
-      return agree(themes, action);
+      return agree(themes, action.payload);
     case 'ADD_OPINION':
-      return addOpinion(themes, action);
+      return addOpinion(themes, action.payload);
     case 'ADD_THEME':
-      return addTheme(themes, action);
+      return addTheme(themes, action.payload);
     default:
       return themes;
   }
 };
 
 export default voteReducer;
-
