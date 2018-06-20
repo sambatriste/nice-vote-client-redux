@@ -47,7 +47,7 @@ const addTheme = (themes, action) => {
 const initialState = [
   {
     themeId: 1,
-    description: '好きな食べ物',
+    title: '好きな食べ物',
     opinions: [
       {
         opinionId: 1,
@@ -63,7 +63,7 @@ const initialState = [
   },
   {
     themeId: 2,
-    description: '好きな人物',
+    title: '好きな人物',
     opinions: [
       {
         opinionId: 1,
@@ -79,6 +79,9 @@ const initialState = [
   }
 ];
 
+
+const recieveThemes = themes => themes;
+
 /**
  * @param themes
  * @param action
@@ -92,6 +95,8 @@ const voteReducer = (themes = initialState, action) => {
       return addOpinion(themes, action.payload);
     case 'ADD_THEME':
       return addTheme(themes, action.payload);
+    case 'RECIEVE_THEMES':
+      return recieveThemes(action.payload);
     default:
       return themes;
   }

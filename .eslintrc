@@ -1,18 +1,23 @@
 {
-  "extends": "airbnb",
-  "globals": {
-    "document": true,
-    "it": true,
-    "expect": true
+  "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
   },
-
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "sourceType": "module"
+  },
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "components": [ "Link", "NavLink" ],
-      "specialLink": [ "to" ]
-    }],
-    "react/prop-types": 0,
-    "comma-dangle": ["error", "never"]
+      "no-const-assign": "warn",
+      "no-this-before-super": "warn",
+      "no-undef": "warn",
+      "no-unreachable": "warn",
+      "no-unused-vars": "warn",
+      "constructor-super": "warn",
+      "valid-typeof": "warn"
   }
 }

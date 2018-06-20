@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const vote = (themeId, opinionId) => ({
   type: 'VOTE',
   payload: {
@@ -34,3 +36,25 @@ export const addTheme = themeDescription => ({
     themeDescription
   }
 });
+
+
+export const requestThemes = () => ({
+  type: 'REQUEST_THEMES'
+});
+
+export const recieveThemes = themes => ({
+  type: 'RECIEVE_THEMES',
+  payload: {
+    themes
+  }
+});
+
+export const fetchThemes = (dispatch) => {
+  dispatch(requestThemes());
+  axios.get('/api/theme').then((response) => {
+    const themes = response.data;
+    dispatch(recieveThemes(themes));
+  }).catch((error) => {
+    console.log(error);
+  });
+};
