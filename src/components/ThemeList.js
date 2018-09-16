@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchThemes } from "../actions";
 
+
 class ThemeListComponent extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.doFetchThemes();
   }
 
@@ -30,7 +31,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   doFetchThemes: () => {
-    fetchThemes(dispatch);  
+    fetchThemes(dispatch);
   }
 });
 

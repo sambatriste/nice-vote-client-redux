@@ -44,43 +44,10 @@ const addTheme = (themes, action) => {
   return [...themes, newTheme];
 };
 
-const initialState = [
-  {
-    themeId: 1,
-    title: '好きな食べ物',
-    opinions: [
-      {
-        opinionId: 1,
-        description: 'すいか',
-        agreementCount: 0
-      },
-      {
-        opinionId: 2,
-        description: 'いちご',
-        agreementCount: 1
-      }
-    ]
-  },
-  {
-    themeId: 2,
-    title: '好きな人物',
-    opinions: [
-      {
-        opinionId: 1,
-        description: '織田信長',
-        agreementCount: 0
-      },
-      {
-        opinionId: 2,
-        description: '織田信成',
-        agreementCount: 1
-      }
-    ]
-  }
-];
+const initialState = [];
 
 
-const recieveThemes = themes => themes;
+const recieveThemes = ({ themes }) => themes;
 
 /**
  * @param themes

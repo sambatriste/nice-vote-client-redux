@@ -10,16 +10,16 @@ const ThemeComponent = ({ theme }) => {
   }
   return (
     <div>
-      <h2>{theme.description}</h2>
+      <h2>{theme.title}</h2>
       <ul>
-        {theme.opinions.map(opinion => (
-          <Opinion
-            key={opinion.opinionId}
-            themeId={theme.themeId}
-            opinion={opinion}
-          />))}
-      </ul>
-      <TotalCount opinions={theme.opinions} />
+      {theme.opinions.map(opinion => (
+        <Opinion
+          key={opinion.opinionId}
+          themeId={theme.themeId}
+          opinion={opinion}
+        />))}
+    </ul>
+          <TotalCount opinions={theme.opinions} />
       <NewOpinion themeId={theme.themeId} />
     </div>
   );
