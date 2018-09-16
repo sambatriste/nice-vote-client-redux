@@ -17,7 +17,7 @@ const agree = (themes, { themeId, opinionId }) => themes.map((theme) => {
   };
 });
 
-const addOpinion = (themes, { themeId, opinionId, opinionDescription }) => themes.map((theme) => {
+const addOpinion = (themes, { themeId, opinionId, description }) => themes.map((theme) => {
   if (theme.themeId !== themeId) {
     return theme;
   }
@@ -27,7 +27,7 @@ const addOpinion = (themes, { themeId, opinionId, opinionDescription }) => theme
       ...theme.opinions,
       {
         opinionId,
-        description: opinionDescription,
+        description,
         agreementCount: 0
       }
     ]

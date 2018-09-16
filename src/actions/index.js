@@ -8,18 +8,28 @@ export const vote = (themeId, opinionId) => ({
   }
 });
 
-let nextOpinionId = 1000;
-const generateNextOpinionId = () => {
-  nextOpinionId += 1;
-  return nextOpinionId;
-};
 
-export const addOpinion = (themeId, opinionDescription) => ({
+export const postOpinion = (themeId, description ) => {
+  return (dispatch) => {
+    axios.post('/api/opinion', {
+      themeId,
+      description
+    }).then(response => {
+      const opinion = response.data;
+      const action = addOpinion(opinion);
+      dispatch(action);
+    }).catch(error => {
+      console.log("post opinion failed. ", error);
+    });
+  };
+}
+
+export const addOpinion = ({themeId, opinionId, description}) => ({
   type: 'ADD_OPINION',
   payload: {
     themeId,
-    opinionId: generateNextOpinionId(),
-    opinionDescription
+    opinionId,
+    description
   }
 });
 
@@ -49,12 +59,14 @@ export const recieveThemes = themes => ({
   }
 });
 
-export const fetchThemes = (dispatch) => {
-  dispatch(requestThemes());
-  axios.get('/api/theme').then((response) => {
-    const themes = response.data;
-    dispatch(recieveThemes(themes));
-  }).catch((error) => {
-    console.log(error);
-  });
-};
+export const fetchThemes = () => {
+  return (dispatch) => {
+    dispatch(requestThemes());
+    axios.get('/api/theme').then((response) => {
+      const themes = response.data;
+      dispatch(recieveThemes(themes));
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
+}

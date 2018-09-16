@@ -30,9 +30,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  doFetchThemes: () => {
-    fetchThemes(dispatch);
-  }
+  doFetchThemes: () => dispatch(fetchThemes())
 });
 
 

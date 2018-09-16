@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addOpinion } from '../actions';
+import { postOpinion } from '../actions';
 
 const NewOpinionComponent = ({ onClick }) => {
   let input;
@@ -22,7 +22,7 @@ const NewOpinionComponent = ({ onClick }) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: (opinionDescription) => {
-    const action = addOpinion(ownProps.themeId, opinionDescription);
+    const action = postOpinion(ownProps.themeId, opinionDescription);
     dispatch(action);
   }
 });
