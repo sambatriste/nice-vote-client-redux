@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { vote } from '../actions';
+import { postVote } from '../actions';
 
 const OpinionComponent = ({ opinion, themeId, doVote }) => {
   const onClick = () => { doVote(themeId, opinion.opinionId); };
@@ -16,7 +16,7 @@ const OpinionComponent = ({ opinion, themeId, doVote }) => {
 
 const mapDispatchToProps = dispatch => ({
   doVote: (themeId, opinionId) => {
-    const action = vote(themeId, opinionId);
+    const action = postVote(themeId, opinionId);
     dispatch(action);
   }
 });

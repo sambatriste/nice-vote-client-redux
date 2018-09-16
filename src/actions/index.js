@@ -1,10 +1,26 @@
 import axios from 'axios';
 
-export const vote = (themeId, opinionId) => ({
+export const postVote = (themeId, opinionId) => {
+  return (dispatch) => {
+    axios.post('/api/agreement', {
+      opinionId
+    }).then(response => {
+      const data = response.data;
+      const action = vote(themeId, opinionId, data.agreementCount);
+      dispatch(action);
+    }).catch(error => {
+      console.log("post vote failed. ", error);
+    })
+  }
+}
+
+
+export const vote = (themeId, opinionId, agreementCount) => ({
   type: 'VOTE',
   payload: {
     themeId,
-    opinionId
+    opinionId,
+    agreementCount
   }
 });
 
