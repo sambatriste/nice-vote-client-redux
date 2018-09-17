@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTheme } from '../actions';
+import { postTheme } from '../actions';
 
-const NewThemeComponent = ({ doAddTheme, history }) => {
+const NewThemeComponent = ({ addTheme, history }) => {
   let input;
   return (
     <div>
@@ -12,7 +12,7 @@ const NewThemeComponent = ({ doAddTheme, history }) => {
         if (!input.value.trim()) {
           return;
         }
-        doAddTheme(input.value);
+        addTheme(input.value);
         input.value = '';
         history.push('/themes');
       }}
@@ -26,8 +26,8 @@ const NewThemeComponent = ({ doAddTheme, history }) => {
 
 
 const mapDispatchToProps = dispatch => ({
-  doAddTheme: (themeDescription) => {
-    const action = addTheme(themeDescription);
+  addTheme: (themeDescription) => {
+    const action = postTheme(themeDescription);
     dispatch(action);
   }
 });

@@ -38,7 +38,7 @@ const addOpinion = (themes, { themeId, opinionId, description }) => themes.map((
 const addTheme = (themes, action) => {
   const newTheme = {
     themeId: action.themeId,
-    description: action.themeDescription,
+    title: action.title,
     opinions: []
   };
   return [...themes, newTheme];

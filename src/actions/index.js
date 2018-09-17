@@ -49,17 +49,24 @@ export const addOpinion = ({themeId, opinionId, description}) => ({
   }
 });
 
-let nextThemeId = 100;
-const generateNextThemeId = () => {
-  nextThemeId += 1;
-  return nextThemeId;
-};
+export const postTheme = title => {
+  return (dispatch) => {
+    axios.post('api/theme', {
+      title
+    }).then(response => {
+      const action = addTheme(response.data);
+      dispatch(action);
+    }).catch(error => {
+      console.log("post theme failed. ", error);
+    })
+  }
+}
 
-export const addTheme = themeDescription => ({
+export const addTheme = ({themeId, title}) => ({
   type: 'ADD_THEME',
   payload: {
-    themeId: generateNextThemeId(),
-    themeDescription
+    themeId,
+    title,
   }
 });
 
